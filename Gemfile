@@ -36,6 +36,14 @@ gem "haml-rails", "~> 0.9"
 # https://github.com/thoughtbot/paperclip
 gem "paperclip", "~> 4.3"
 
+# SimpleForm for making forms
+# https://github.com/plataformatec/simple_form
+# http://simple-form-bootstrap.plataformatec.com.br/examples/create_basic
+gem 'simple_form'
+
+# Bootstrap!
+gem 'bootstrap', '>= 4.0.0.alpha3'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
