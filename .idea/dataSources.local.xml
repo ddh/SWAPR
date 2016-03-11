@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails SWAPR: test" uuid="df079954-7e61-4800-9b3b-6f9ee0b5b8fc">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails SWAPR: production" uuid="84d00d63-3045-4d2b-bd5b-8e2dcd223b56">
+      <first-sync>true</first-sync>
+      <user-name>SWAPR</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dffddfebdffadff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+    <data-source name="Rails SWAPR: development" uuid="79e6ca90-c6c7-482c-bc56-3701096fdc33">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>
