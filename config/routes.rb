@@ -4,14 +4,16 @@ Rails.application.routes.draw do
   # Root
   root 'static_pages#home'
 
-  # Users
-  get 'signup'  =>  'users#new'
-
   # Static pages: (assigning var => url)
   get 'help'    =>  'static_pages#help'
   get 'about'   =>  'static_pages#about'
   get 'contact' =>  'static_pages#contact'
 
+  # Users
+  resources :users
+  get 'signup'  =>  'users#new'
+
+  # Listings
   resources :listings
   get 'listings/search/:query' => 'listings#search'
   get 'listings/listing/:id' => 'listings#listing'
