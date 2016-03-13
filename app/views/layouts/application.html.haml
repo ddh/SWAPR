@@ -1,3 +1,8 @@
+-#Anything here will be displayed in ALL of the project
+
+-#Display _navbar partial in each page of the app:
+= render :partial => '/partials/navbar', :locals => {listings: @listsings}
+
 !!!
 %html
   %head
@@ -8,3 +13,4 @@
     = csrf_meta_tags
   %body
     = yield
+= render :partial => '/partials/footer'
