@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
 
-  get 'users/new'
+  # Root
+  root 'static_pages#home'
 
-  get 'users/new'
+  # Users
+  get 'signup'  =>  'users#new'
 
   # Static pages: (assigning var => url)
-  root 'listings#index'
   get 'help'    =>  'static_pages#help'
   get 'about'   =>  'static_pages#about'
   get 'contact' =>  'static_pages#contact'
