@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :city, presence: true, length: {maximum: 50}
   validates :state, presence: true, length: {maximum: 50}
   validates :zip, presence: true, length: {maximum: 50}
-  validates :phone, presence: true, length:{maximum: 10}
+  validates :phone, presence: true, length:{maximum: 20}
 
 
   # Password configurations
