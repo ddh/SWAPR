@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   get 'listings/search/:query' => 'listings#search'
   get 'listings/listing/:id' => 'listings#listing'
 
+  # Login
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
 end
 
 # The priority is based upon order of creation: first created -> highest priority.

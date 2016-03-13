@@ -3,5 +3,9 @@
     = menu_item "Home", root_path
     = menu_item "Help", help_path
     = menu_item "About", about_path
-    = menu_item "Login"
-    = menu_item "My Account"
+    - if logged_in?
+      = menu_item "My Account"
+      = menu_item "Logout", logout_path, method: "delete"
+      - puts current_user.email
+    - else
+      = menu_item "Login", login_path
