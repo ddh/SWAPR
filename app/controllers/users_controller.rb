@@ -1,36 +1,33 @@
 class UsersController < ApplicationController
 
+  #Display User info
+  def show
+    @user = User.find(params[:id])
+  end
+
+  # What to do when creating a new user (make a new User in db)
+
   def new
     @user = User.new
   end
 
+  # Creating new Users
   def create
-    @user = User.first
-    User.create(user_params)
-    redirect_to listings_path
+    @user = User.new(user_params)
+    if @user.save
+      log_in @user
+      flash[:success] = "Welcome to SWAPR!"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
-  def show
-    @user = User.where(user_id: params[:id]).first
-    @listings = Listing.where(owner_id: @user.user_id)
-  end
-
-  def login
-
-  end
-
-  def authenticate
-    @username = params[:user]
-    @password = params[:password]
-    puts @username
-    puts @password
-    redirect_to root_path
-  end
-
-
+  # Define private variables
   private
 
   def user_params
-    params.require(:user).permit(:name, :address, :city, :state, :zip, :phone, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :address, :city, :state, :zip, :phone)
   end
+
 end

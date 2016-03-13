@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313001835) do
+ActiveRecord::Schema.define(version: 20160313184024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exchanges", primary_key: "exchange_id", force: :cascade do |t|
+    t.integer "listings_id", null: false
+    t.date    "borrowed_on", null: false
+    t.date    "returned_on"
+    t.integer "borrower_id", null: false
+    t.integer "lender_id",   null: false
+  end
 
   create_table "listings", primary_key: "listing_id", force: :cascade do |t|
     t.integer  "owner_id",                       null: false
@@ -31,15 +39,20 @@ ActiveRecord::Schema.define(version: 20160313001835) do
     t.datetime "image_updated_at"
   end
 
-  create_table "users", primary_key: "user_id", force: :cascade do |t|
-    t.string "name",     null: false
-    t.string "address",  null: false
-    t.string "city",     null: false
-    t.string "state",    null: false
-    t.string "zip",      null: false
-    t.string "phone"
-    t.string "email",    null: false
-    t.string "password", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

@@ -1,19 +1,19 @@
-= render :partial => '/partials/navbar'
-
-.container
-  .page-header
-    %h1
-      = @user.name
-  .col_12
-    %p
-      Contact Info:
-      %br
-      email:
-      = @user.email
-      %br
-      Phone:
-      = @user.phone
-    %hr
-    %h2 Listings
-    = render :partial => '/partials/list', :locals => {listings: @listsings}
-
+- provide(:title, @user.name)
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = gravatar_for @user
+        = @user.name
+      .col_12
+        %p
+          Contact Info:
+          %br
+          email:
+          = @user.email
+          %br
+          Phone:
+          = @user.phone
+        %hr
+        %h2 Listings
+        -#= render :partial => '/partials/list', :locals => {listings: @listings}

@@ -1,3 +1,6 @@
+-#Anything here will be displayed in ALL of the project
+
+
 !!!
 %html
   %head
@@ -7,4 +10,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+
+    -#NAV-BAR
+    = render :partial => '/partials/navbar', :locals => {listings: @listsings}
+
+    -#FLASH CONFIRMATION MESSAGES
+    .container
+      - flash.each do |message_type, message|
+        %div{:class => "alert alert-#{message_type}"}= message
+      = yield
+
+      -#FOOTER
+      = render :partial => '/partials/footer'
+
+      -#DEBUGGING BOX
+      = debug(params) if Rails.env.development?

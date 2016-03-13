@@ -1,3 +1,23 @@
+<<<<<<< HEAD:app/views/listings/listing.html.haml
+.container
+  .page-header
+    %h1
+      = @listing.title
+  .col_12
+    %p
+      Owner:
+      = @owner.name
+      %br
+      Contact Info:
+      = @owner.email
+    %hr
+    %p
+      = @listing.description
+    %p
+      Available for
+      = @listing.borrow_length
+      days
+=======
 = render :partial => '/partials/navbar'
 
 .container
@@ -18,3 +38,4 @@
       Available for
       = @listing.borrow_length
       days
+>>>>>>> master:app/views/listings/show.html.haml

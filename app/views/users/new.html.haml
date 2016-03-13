@@ -1,15 +1,34 @@
-= render :partial => '/partials/navbar'
-
 .container
-  .page-header
-    %h1 Register New Account
-  = simple_form_for @user, html: {class: 'form=horizontal'} do |f|
-    = f.input :name
-    = f.input :address
-    = f.input :city
-    = f.input :state
-    = f.input :zip
-    = f.input :phone
-    = f.input :email
-    = f.input :password
-    = f.button :submit
+  - provide(:title, 'Sign up')
+  %h1 Sign up
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for(@user) do |f|
+        = render 'shared/error_messages'
+
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+
+        -# TODO: Need to form-control these guys
+        = f.label :address
+        = f.text_field :address, class: 'form-control'
+        = f.label :city
+        = f.text_field :city, class: 'form-control'
+        = f.label :state
+        = f.text_field :state, class: 'form-control'
+        = f.label :zip
+        = f.text_field :zip
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control'
+
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+
+        = f.label :password_confirmation, "Confirmation"
+        = f.password_field :password_confirmation, class: 'form-control'
+
+        = f.submit "Create my account", class: "btn btn-primary"
+
