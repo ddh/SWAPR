@@ -15,14 +15,12 @@ class ListingsController < ApplicationController
   def create
     @user = User.first
     Listing.create(listing_params) do |listing|
-      listing.owner_id = @user.user_id
-      listing.date_created = Date.today
-
+      user.created_at = Time.now
     end
     redirect_to listings_path
   end
 
-  def listing
+  def show
     @listing = Listing.where(:listing_id => params[:id]).first
     @owner = User.where(:user_id => @listing.owner_id).first
   end
@@ -30,6 +28,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :borrow_length, :category, :post_image)
+    params.require(:show).permit(:title, :description, :borrow_length, :category, :post_image)
   end
 end

@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 20160313184024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "exchanges", primary_key: "exchange_id", force: :cascade do |t|
+    t.integer "listings_id", null: false
+    t.date    "borrowed_on", null: false
+    t.date    "returned_on"
+    t.integer "borrower_id", null: false
+    t.integer "lender_id",   null: false
+  end
+
   create_table "listings", primary_key: "listing_id", force: :cascade do |t|
     t.integer  "owner_id",                       null: false
     t.string   "title",              limit: 255, null: false

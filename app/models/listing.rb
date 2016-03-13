@@ -1,6 +1,6 @@
 class Listing < ActiveRecord::Base
 
-  #If you want to require images in listing
+  #If you want to require images in show
   # validates :image, presence: true
 
   belongs_to :user

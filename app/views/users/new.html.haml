@@ -12,6 +12,18 @@
         = f.label :email
         = f.email_field :email, class: 'form-control'
 
+        -# TODO: Need to form-control these guys
+        = f.label :address
+        = f.text_field :address, class: 'form-control'
+        = f.label :city
+        = f.text_field :city, class: 'form-control'
+        = f.label :state
+        = f.text_field :state, class: 'form-control'
+        = f.label :zip
+        = f.text_field :zip
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control'
+
         = f.label :password
         = f.password_field :password, class: 'form-control'
 
@@ -19,3 +31,4 @@
         = f.password_field :password_confirmation, class: 'form-control'
 
         = f.submit "Create my account", class: "btn btn-primary"
+

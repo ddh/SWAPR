@@ -26,9 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Heroku specifically mentions to put ruby version here
 ruby "2.2.4"
 
-# Heroku wanted me to put this in there, forgot why...
-gem 'rails_12factor', group: :production
-
 # Using HAML instead of .erb, fanciness
 gem "haml-rails", "~> 0.9"
 
@@ -56,6 +53,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :production do
+  # Heroku wanted me to put this in there, forgot why...
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
