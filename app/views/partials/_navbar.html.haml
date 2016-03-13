@@ -1,13 +1,13 @@
 = nav_bar static: :top, brand: "SWAPR", responsive: true do
   = menu_group do
     = menu_item "Home", root_path
-    = menu_item "listings", listings_path
+    = menu_item "Listings", listings_path
     = menu_item "Help", help_path
     = menu_item "About", about_path
     - if logged_in?
-      = menu_item "My Account"
+      = menu_item "My Account", user_path(current_user)
+      = menu_item "Settings", edit_user_path(current_user)
       = menu_item "Logout", logout_path, method: "delete"
-      - puts current_user.email
     - else
       = menu_item "Login", login_path
 
