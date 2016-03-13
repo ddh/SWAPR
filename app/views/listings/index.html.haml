@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 .container
   .page-header
-    %h1 Welcome To SWAPR
-=======
-= render :partial => '/partials/navbar', :locals => {listings: @listsings}
-
-.container
-  .page-header
-    %h1 Welcome To SWAPR
->>>>>>> master
+    %h1 Listings
+  = link_to "+Add Post!", new_listing_path, class: "btn btn-lg btn-primary"
   = render :partial => '/partials/list', :locals => {listings: @listsings}

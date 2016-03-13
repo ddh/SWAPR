@@ -1,0 +1,9 @@
+.container
+  .page-header
+    %h1 Welcome To SWAPR
+  = simple_form_for @listing, html: {class: 'form=horizontal'}, :method => :PUT do |f|
+    = f.input :title
+    = f.input :description
+    = f.input :borrow_length
+    = f.input :category
+    = f.button :submit

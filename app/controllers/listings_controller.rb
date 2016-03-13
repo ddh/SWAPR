@@ -10,24 +10,34 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    @current_user = current_user
   end
 
   def create
-    @user = User.first
     Listing.create(listing_params) do |listing|
-      user.created_at = Time.now
+      listing.owner_id = current_user.id
+      listing.date_created = Date.today
     end
     redirect_to listings_path
   end
 
   def show
     @listing = Listing.where(:listing_id => params[:id]).first
-    @owner = User.where(:user_id => @listing.owner_id).first
+    @owner = User.where(:id => @listing.owner_id).first
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
+  end
+
+  def update
+    Listing.update(params[:id], listing_params)
+    redirect_to listings_path
   end
 
   private
 
   def listing_params
-    params.require(:show).permit(:title, :description, :borrow_length, :category, :post_image)
+    params.require(:listing).permit(:title, :description, :borrow_length, :category)
   end
 end
