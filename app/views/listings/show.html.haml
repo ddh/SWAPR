@@ -16,5 +16,5 @@
       Available for
       = @listing.borrow_length
       days
-    - if current_user.id == @owner.id
+    - if current_user && current_user.id == @owner.id
       = link_to "Edit Post", edit_listing_path, class: "btn btn-lg btn-primary"
