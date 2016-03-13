@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  get 'users/new'
+
   # Static pages: (assigning var => url)
   root 'listings#index'
   get 'help'    =>  'static_pages#help'
