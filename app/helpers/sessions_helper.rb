@@ -42,4 +42,20 @@ module SessionsHelper
     !current_user.nil? # Just check if user is nil or not! ez
   end
 
+  # Check if the passed in user is the current user
+  def current_user?(user)
+    user == current_user
+  end
+
+  # Redirect to intended page (or a default)
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Save URL of the intended destination
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
+
 end
