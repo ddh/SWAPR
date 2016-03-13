@@ -32,15 +32,14 @@ ActiveRecord::Schema.define(version: 20160313001835) do
   end
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name",     null: false
+    t.string "address",  null: false
+    t.string "city",     null: false
+    t.string "state",    null: false
+    t.string "zip",      null: false
+    t.string "phone"
+    t.string "email",    null: false
+    t.string "password", null: false
   end
 
 end
