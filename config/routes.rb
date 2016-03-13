@@ -56,4 +56,8 @@ Rails.application.routes.draw do
   resources :listings
   root 'welcome#index'
 
+  get 'listings/search/:query' => 'listings#search'
+
+  get 'listings/listing/:id' => 'listings#listing'
+
 end

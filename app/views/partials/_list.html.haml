@@ -1,0 +1,11 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Title
+      %th Date
+
+  %tbody
+    -@listings.each do |listing|
+      %tr
+        %td= link_to listing.title, listing
+        %td= listing.date_created

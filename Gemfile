@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Heroku specifically mentions to put ruby version here
-ruby "2.2.1"
+ruby "2.2.4"
 
 # Heroku wanted me to put this in there, forgot why...
 gem 'rails_12factor', group: :production
@@ -42,7 +42,10 @@ gem "paperclip", "~> 4.3"
 gem 'simple_form'
 
 # Bootstrap!
-gem 'bootstrap', '>= 4.0.0.alpha3'
+gem 'twitter-bootstrap-rails'
+
+# Needed for windows machines
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # Use ActiveModel has_secure_password

@@ -11,18 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311151344) do
+ActiveRecord::Schema.define(version: 20160313001835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "listings", force: :cascade do |t|
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+  create_table "listings", primary_key: "listing_id", force: :cascade do |t|
+    t.integer  "owner_id",                       null: false
+    t.string   "title",              limit: 255, null: false
+    t.string   "description",        limit: 255, null: false
+    t.string   "images",             limit: 255
+    t.string   "category",           limit: 255, null: false
+    t.integer  "borrow_length",                  null: false
+    t.date     "date_created",                   null: false
+    t.date     "date_modified"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "users", primary_key: "user_id", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

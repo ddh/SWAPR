@@ -1,6 +1,7 @@
-= render :partial => '/partials/navbar', :locals => {listings: @listsings}
+= render :partial => '/partials/navbar'
 
 .container
   .page-header
-    %h1 Welcome To SWAPR
+    %h1 Search
+
   = render :partial => '/partials/list', :locals => {listings: @listsings}
