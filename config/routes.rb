@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   get 'users/:id', to:'users#user'
 
-  get 'login', to:'users#login'
-
   get 'listings/:id', to:'listings#show'
 
 end
