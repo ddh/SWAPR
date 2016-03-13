@@ -14,8 +14,9 @@
           %br
           Phone:
           = @user.phone
-          %br
-          = link_to "Edit Profile", edit_user_path, class: "btn btn-primary"
+          - if current_user?(@user)
+            %br
+            = link_to "Edit Profile", edit_user_path, class: "btn btn-primary"
         %hr
         %h2
           Listings
