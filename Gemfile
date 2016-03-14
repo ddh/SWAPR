@@ -49,9 +49,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.7'
 
 # Making fake data
+# https://github.com/stympy/faker
 gem 'faker'
 
 # For pagination
+# https://github.com/mislav/will_paginate
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
