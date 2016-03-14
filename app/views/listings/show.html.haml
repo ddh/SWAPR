@@ -18,3 +18,4 @@
       days
     - if current_user && current_user.id == @owner.id
       = link_to "Edit Post", edit_listing_path, class: "btn btn-lg btn-primary"
+      = link_to "Delete", @user, method: :delete, data: {confirm: "Delete Listing?"}, class: "btn btn-primary"
