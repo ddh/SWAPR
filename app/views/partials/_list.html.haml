@@ -7,5 +7,7 @@
   %tbody
     -@listings.each do |listing|
       %tr
-        %td= link_to listing.title, listing
-        %td= listing.date_created
+        %td
+          = link_to listing.title, listing
+        %td
+          = listing.date_created

@@ -48,6 +48,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Making fake data
+# https://github.com/stympy/faker
+gem 'faker'
+
+# For pagination
+# https://github.com/mislav/will_paginate
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -68,6 +77,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+
+
 end
 
 # gem 'puma', group: :production #TODO: Windows doesn't seem to like PUMA

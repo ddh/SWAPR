@@ -15,12 +15,13 @@ class User < ActiveRecord::Base
   validates :city, presence: true, length: {maximum: 50}
   validates :state, presence: true, length: {maximum: 50}
   validates :zip, presence: true, length: {maximum: 50}
-  validates :phone, presence: true, length:{maximum: 10}
+  validates :phone, presence: true, length:{maximum: 20}
 
 
   # Password configurations
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  # The nil is just for updating; doesn't allow users to CREATE accounts without password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
