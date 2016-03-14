@@ -14,4 +14,4 @@ Actions that can be performed on the webpage
 -Request to borrow a listing
 -View you account info, listings, and exchanges on your account page
 
-The file structure of this app is the standard Ruby on Rails structure. The application front end files are located in the app/ directory. A schema of the database can be found in db/schema.rb file.
+The file structure of this app is the standard Ruby on Rails structure. The application file are located in the app/ directoy. Controllers can be found in the app/controllers directory. Views can ve found in the app/views folder. A schema of the database can be found in db/schema.rb file.
