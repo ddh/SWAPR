@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   #Display User info
   def show
     @user = User.find(params[:id])
-    @listings = Listing.where(:owner_id => @user.id)
+    @listings = @user.listings
     @exchanges = Listing.joins(:exchange).select("exchanges.*, listings.*").where("exchanges.lender_id = ? OR exchanges.borrower_id = ?", @user.id, @user.id)
   end
 
@@ -54,18 +54,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # Checks to see if user is logged in, preventing access
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "You need to log in first!"
-      redirect_to login_url
-    end
-  end
 
-  def is_user_admin?
-    redirect_to(root_url) unless current_user.admin?
-  end
 
   # Only allow an action if the user is the same OR user is admin
   def correct_user

@@ -14,9 +14,10 @@
           %br
           Phone:
           = @user.phone
-          - if current_user?(@user) or current_user.admin?
+          - if current_user?(@user)
             %br
             = link_to "Edit Profile", edit_user_path, class: "btn btn-primary"
+          - if current_user.admin?
             = link_to "Delete", @user, method: :delete, data: {confirm: "Delete User?"}, class: "btn btn-primary"
         %hr
         %h2 Exchanges

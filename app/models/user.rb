@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  # User has many listings. Listings are destroyed if this user is destroyed!
+  has_many :listings, dependent: :destroy
+
   # Remembering login sessions
   attr_accessor :remember_token
 

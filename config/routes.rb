@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   resources :listings
   get 'listings/search/:query' => 'listings#search'
   get 'listings/listing/:id' => 'listings#listing'
-  get 'listings/:id/edit', to:'listings#edit'
-  get 'listings/:id', to:'listings#show'
 
   # Exchanges
   resources :exchanges

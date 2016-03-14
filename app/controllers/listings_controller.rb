@@ -1,6 +1,9 @@
 class ListingsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:destroy, :edit, :update]
+
   def index
-    @listings = Listing.order('date_created DESC')
+    @listings = Listing.paginate(page: params[:page], :per_page => 10)
   end
 
   def search
@@ -14,16 +17,20 @@ class ListingsController < ApplicationController
   end
 
   def create
-    Listing.create(listing_params) do |listing|
-      listing.owner_id = current_user.id
-      listing.date_created = Date.today
+    @listing = Listing.new(listing_params)
+    # @listing.user_id = current_user.id
+    if @listing.save
+      flash[:success] = "Listing created!"
+      redirect_to listing_path
+    else
+      redirect_to listings_path
     end
-    redirect_to listings_path
   end
 
   def show
-    @listing = Listing.where(:listing_id => params[:id]).first
-    @owner = User.where(:id => @listing.owner_id).first
+    @listing = Listing.find(params[:id])
+    @owner = User.find(@listing.user_id)
+
   end
 
   def edit
@@ -32,14 +39,21 @@ class ListingsController < ApplicationController
 
   def update
     Listing.update(params[:id], listing_params)
-    redirect_to listings_path
+    redirect_to listing_path
   end
 
   def destroy
-    @listing = Listing.find(params[:id])
-    @listing.destroy
+    @listing = Listing.find(params[:id]).destroy
     flash[:success] = "Listing deleted!"
     redirect_to listings_path
+  end
+
+  def correct_user
+    @listing = current_user.listings.find_by(id: params[:id])
+    unless current_user?(current_user.id) or current_user.admin?
+      flash[:danger] = "I'm afraid you can't do that!"
+      redirect_to request.referrer || root_url
+    end
   end
 
   private
