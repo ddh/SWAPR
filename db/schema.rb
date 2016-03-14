@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160313184024) do
   enable_extension "plpgsql"
 
   create_table "exchanges", primary_key: "exchange_id", force: :cascade do |t|
-    t.integer "listings_id", null: false
+    t.integer "listing_id",  null: false
     t.date    "borrowed_on", null: false
     t.date    "returned_on"
     t.integer "borrower_id", null: false

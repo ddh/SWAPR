@@ -15,5 +15,19 @@
           Phone:
           = @user.phone
         %hr
+        %h2 Exchanges
+        %table.table.table-striped.table-hover
+          %thead
+            %tr
+              %th Title
+              %th Date
+
+          %tbody
+            -@exchanges.each do |exchange|
+              %tr
+                %td= link_to exchange.title
+                %td= exchange.date_created
+
+        %hr
         %h2 Listings
-        -#= render :partial => '/partials/list', :locals => {listings: @listings}
+        = render :partial => '/partials/list', :locals => {listings: @listings}

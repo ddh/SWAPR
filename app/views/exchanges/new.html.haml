@@ -1,0 +1,17 @@
+.container
+  .page-header
+    %h1 Request Exchange
+  %p
+    Item:
+    = @listing.title
+  %p
+    Owner:
+    = @owner.name
+  %p
+    Available For:
+    = @listing.borrow_length
+    days
+
+  = simple_form_for @exchange, html: {class: 'form=horizontal'} do |f|
+    = f.hidden_field_tag :listing_id, @listing.listing_id
+    = f.button :submit, "Send Request"

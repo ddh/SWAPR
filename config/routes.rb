@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get 'listings/:id/edit', to:'listings#edit'
   get 'listings/:id', to:'listings#show'
 
+  # Exchanges
+  resources :exchanges
+  get 'exchanges/new/:id' => 'exchanges#new'
+
   # Login
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

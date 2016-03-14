@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   #Display User info
   def show
     @user = User.find(params[:id])
+    @listings = Listing.where(:owner_id => @user.id)
+    @exchanges = Listing.joins(:exchange).select("exchanges.*, listings.*").where("exchanges.lender_id = ? OR exchanges.borrower_id = ?", @user.id, @user.id)
   end
 
   # What to do when creating a new user (make a new User in db)
