@@ -4,3 +4,4 @@
   -if current_user
     = link_to "+Add Post!", new_listing_path, class: "btn btn-lg btn-primary"
   = render :partial => '/partials/list', :locals => {listings: @listsings}
+  = will_paginate

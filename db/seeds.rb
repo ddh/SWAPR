@@ -40,3 +40,18 @@ User.create(name: 'Admin',
               zip: zip,
               phone: phone)
 end
+
+# Create some fake items
+50.times do |listing|
+  title = Faker::Commerce.product_name
+  description = Faker::Lorem.sentence(7, true)
+  borrow = Faker::Number.between(1, 30)
+  category = Faker::Commerce.department
+  user_id = Faker::Number.between(1, User.count)
+
+  Listing.create(title: title,
+                 description: description,
+                 borrow_length: borrow,
+                 category: category,
+                 user_id: user_id)
+end

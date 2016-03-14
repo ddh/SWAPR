@@ -3,7 +3,8 @@
   %aside.col-md-4
     %section.user_info
       %h1
-        = gravatar_for @user
+        -#= gravatar_for @user
+        %img(src="#{Faker::Avatar.image(nil, '150x150', 'png')}" align="left")
         = @user.name
       .col_12
         %p
