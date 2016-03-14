@@ -17,13 +17,15 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
-    # @listing.user_id = current_user.id
+    @listing = Listing.new(listing_params) do |listing|
+      listing.user_id = current_user.id
+    end
     if @listing.save
       flash[:success] = "Listing created!"
-      redirect_to listing_path
+      redirect_to @listing
     else
-      redirect_to listings_path
+      flash[:danger] = "Oops! Couldn't create listing"
+      redirect_to request.referrer
     end
   end
 
@@ -39,6 +41,7 @@ class ListingsController < ApplicationController
 
   def update
     Listing.update(params[:id], listing_params)
+    flash[:success] = "Listing updated"
     redirect_to listing_path
   end
 
@@ -50,9 +53,9 @@ class ListingsController < ApplicationController
 
   def correct_user
     @listing = current_user.listings.find_by(id: params[:id])
-    unless current_user?(current_user.id) or current_user.admin?
-      flash[:danger] = "I'm afraid you can't do that!"
+    unless (@listing.present? or current_user.admin?)
       redirect_to request.referrer || root_url
+      flash[:danger] = "I'm afraid you can't do that!"
     end
   end
 

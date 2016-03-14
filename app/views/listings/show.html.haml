@@ -18,6 +18,6 @@
       Available for
       = @listing.borrow_length
       days
-    - if current_user && current_user.id == @owner.id
+    - if current_user && current_user.id == @owner.id or current_user.admin?
       = link_to "Edit Post", edit_listing_path, class: "btn btn-primary"
       = link_to "Delete", @listing, method: :delete, data: {confirm: "Delete Listing?"}, class: "btn btn-primary"
