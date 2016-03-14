@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
-
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :is_user_admin?, only: :destroy
 
   # Show ALL Users...
   def index
@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "User deleted!"
+    redirect_to users_path
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -54,9 +61,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def is_user_admin?
+    redirect_to(root_url) unless current_user.admin?
+  end
+
+  # Only allow an action if the user is the same OR user is admin
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    redirect_to(root_url) unless current_user?(@user) or current_user.admin?
   end
 
   # Define private variables
