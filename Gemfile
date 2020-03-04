@@ -3,7 +3,7 @@ ruby '2.6.4'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -35,6 +35,8 @@ gem "paperclip", '~> 6.1'
 # https://github.com/plataformatec/simple_form
 # http://simple-form-bootstrap.plataformatec.com.br/examples/create_basic
 gem 'simple_form'
+
+gem 'bootsnap'
 
 # Bootstrap!
 gem "twitter-bootstrap-rails"
@@ -75,6 +77,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'listen'
 
 
 
