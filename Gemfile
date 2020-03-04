@@ -37,7 +37,7 @@ gem "paperclip", '~> 6.1'
 gem 'simple_form'
 
 # Bootstrap!
-gem 'twitter-bootstrap-rails', '~> 2.2'
+gem "twitter-bootstrap-rails"
 
 # Needed for windows machines
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
