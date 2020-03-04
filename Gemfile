@@ -29,7 +29,7 @@ gem "haml-rails", "~> 0.9"
 
 # Paperclip for uploading images
 # https://github.com/thoughtbot/paperclip
-gem "paperclip", "~> 4.3"
+gem "paperclip", "~> 5.2"
 
 # SimpleForm for making forms
 # https://github.com/plataformatec/simple_form
