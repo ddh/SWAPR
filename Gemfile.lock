@@ -43,11 +43,17 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    autoprefixer-rails (9.7.4)
+      execjs
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bootstrap (4.4.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.4)
@@ -103,6 +109,7 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
+    libv8 (3.16.14.19)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -136,6 +143,7 @@ GEM
       terrapin (~> 0.6.0)
     pg (1.2.2)
     pg (1.2.2-x86-mingw32)
+    popper_js (1.16.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -173,6 +181,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdoc (4.3.0)
+    ref (2.0.0)
     ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
     sass-rails (6.0.0)
@@ -205,6 +214,9 @@ GEM
     temple (0.8.2)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -239,6 +251,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1)
   bootsnap
+  bootstrap (~> 4.4.1)
   bootstrap-will_paginate (~> 1.0)
   byebug
   coffee-rails (~> 5.0)
@@ -246,6 +259,7 @@ DEPENDENCIES
   haml-rails (~> 2.0)
   jbuilder (~> 2.10)
   jquery-rails
+  less-rails
   listen
   paperclip (~> 6.1)
   pg
@@ -255,6 +269,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   spring
+  therubyracer
   turbolinks
   twitter-bootstrap-rails
   tzinfo-data

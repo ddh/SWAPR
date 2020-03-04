@@ -13,7 +13,9 @@ gem 'uglifier', '~> 4.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -39,7 +41,7 @@ gem 'simple_form'
 gem 'bootsnap'
 
 # Bootstrap!
-gem "twitter-bootstrap-rails"
+gem 'bootstrap', '~> 4.4.1'
 
 # Needed for windows machines
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
