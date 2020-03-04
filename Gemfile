@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.4'
 
+gem "twitter-bootstrap-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -10,21 +11,11 @@ gem 'pg'
 gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.2'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 5.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.10'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Using HAML instead of .erb, fanciness
 gem "haml-rails", '~> 2.0'
@@ -40,12 +31,6 @@ gem 'simple_form'
 
 gem 'bootsnap'
 
-# Bootstrap!
-gem 'bootstrap', '~> 4.4.1'
-
-# Needed for windows machines
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1'
@@ -58,12 +43,6 @@ gem 'faker'
 # https://github.com/mislav/will_paginate
 gem 'will_paginate', '~> 3.3'
 gem 'bootstrap-will_paginate', '~> 1.0'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :production do
   # Heroku wanted me to put this in there, forgot why...
